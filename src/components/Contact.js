@@ -16,12 +16,6 @@ export const Contact = () => {
   const [formDetails, setFormDetails] = useState(formInitialDetails);
   const [buttonText, setButtonText] = useState("Send");
   const [status, setStatus] = useState({});
-  const [toSend, setToSend] = useState({
-    from_name: "",
-    to_name: "",
-    message: "",
-    reply_to: "",
-  });
 
   const onFormUpdate = (category, value) => {
     setFormDetails({
@@ -34,7 +28,7 @@ export const Contact = () => {
     e.preventDefault();
     setButtonText("Sending...");
 
-    send("service_humjqtg", "template_6j70xgo", toSend, "aCtL3Sw_JjxZjkosi")
+    send("service_humjqtg", "template_6j70xgo", "aCtL3Sw_JjxZjkosi")
       .then((response) => {
         console.log("SUCCESS!", response.status, response.text);
         setButtonText("Sent email!");
