@@ -16,6 +16,12 @@ export const Contact = () => {
   const [formDetails, setFormDetails] = useState(formInitialDetails);
   const [buttonText, setButtonText] = useState("Send");
   const [status, setStatus] = useState({});
+  const [toSend] = useState({
+    from_name: "",
+    to_name: "",
+    message: "",
+    reply_to: "",
+  });
 
   const onFormUpdate = (category, value) => {
     setFormDetails({
@@ -28,7 +34,7 @@ export const Contact = () => {
     e.preventDefault();
     setButtonText("Sending...");
 
-    send("service_humjqtg", "template_6j70xgo", "aCtL3Sw_JjxZjkosi")
+    send("service_humjqtg", "template_6j70xgo", toSend, "aCtL3Sw_JjxZjkosi")
       .then((response) => {
         console.log("SUCCESS!", response.status, response.text);
         setButtonText("Sent email!");
@@ -42,24 +48,6 @@ export const Contact = () => {
         });
       });
   };
-  // let response = await fetch("http://localhost:3000/connect", {
-  //   method: "POST",
-  //   headers: {
-  //     "Content-Type": "application/json;charset=utf-8",
-  //   },
-  //   body: JSON.stringify(formDetails),
-  // });
-  // setButtonText("Send");
-  // let result = await response.json();
-  // setFormDetails(formInitialDetails);
-  // if (result.code == 200) {
-  //   setStatus({ succes: true, message: "Message sent successfully" });
-  // } else {
-  //   setStatus({
-  //     succes: false,
-  //     message: "Something went wrong, please try again later.",
-  //   });
-  // }
 
   return (
     <section className="contact" id="connect">
