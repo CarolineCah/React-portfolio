@@ -49,7 +49,7 @@ export const Projects = () => {
   ];
 
   return (
-    <section className="project" id="project">
+    <section className="projects" id="projects">
       <Container>
         <Row>
           <Col size={12}>
@@ -61,13 +61,6 @@ export const Projects = () => {
                   }
                 >
                   <h2>Projects</h2>
-                  <a
-                    href={"https://www.polestar.com/se/polestar-2/"}
-                    style={{ color: "white" }}
-                  >
-                    Polestar.com/se/polestar-2
-                  </a>
-                  <p></p>
                   <Tab.Container id="projects-tabs" defaultActiveKey="first">
                     <Nav
                       variant="pills"
