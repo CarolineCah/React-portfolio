@@ -74,11 +74,12 @@ export const Contact = () => {
                     isVisible ? "animate__animated animate__fadeIn" : ""
                   }
                 >
-                  <h2>Get In Touch</h2>
+                  <h2 style={{ cursor: "default" }}>Get In Touch</h2>
                   <form onSubmit={handleSubmit}>
                     <Row>
                       <Col size={12} sm={6} className="px-1">
                         <input
+                          style={{ cursor: "text" }}
                           type="text"
                           value={formDetails.firstName}
                           placeholder="First Name"
@@ -90,6 +91,7 @@ export const Contact = () => {
                       <Col size={12} sm={6} className="px-1">
                         <input
                           type="text"
+                          style={{ cursor: "text" }}
                           value={formDetails.lasttName}
                           placeholder="Last Name"
                           onChange={(e) =>
@@ -100,6 +102,7 @@ export const Contact = () => {
                       <Col size={12} sm={6} className="px-1">
                         <input
                           type="email"
+                          style={{ cursor: "text" }}
                           value={formDetails.email}
                           placeholder="Email Address"
                           onChange={(e) =>
@@ -110,6 +113,7 @@ export const Contact = () => {
                       <Col size={12} sm={6} className="px-1">
                         <input
                           type="tel"
+                          style={{ cursor: "text" }}
                           value={formDetails.phone}
                           placeholder="Phone No."
                           onChange={(e) =>
@@ -119,6 +123,7 @@ export const Contact = () => {
                       </Col>
                       <Col size={12} className="px-1">
                         <textarea
+                          style={{ cursor: "text" }}
                           rows="6"
                           value={formDetails.message}
                           placeholder="Message"

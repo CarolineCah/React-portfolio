@@ -60,7 +60,7 @@ export const Projects = () => {
                     isVisible ? "animate__animated animate__fadeIn" : ""
                   }
                 >
-                  <h2>Projects</h2>
+                  <h2 style={{ cursor: "default" }}>Projects</h2>
                   <Tab.Container id="projects-tabs" defaultActiveKey="first">
                     <Nav
                       variant="pills"
@@ -68,15 +68,28 @@ export const Projects = () => {
                       id="pills-tab"
                     >
                       <Nav.Item>
-                        <Nav.Link eventKey="first">Web development</Nav.Link>
+                        <Nav.Link
+                          eventKey="first"
+                          style={{ cursor: "pointer" }}
+                        >
+                          Web development
+                        </Nav.Link>
                       </Nav.Item>
                       <Nav.Item>
-                        <Nav.Link eventKey="second">
+                        <Nav.Link
+                          eventKey="second"
+                          style={{ cursor: "pointer" }}
+                        >
                           Android Development
                         </Nav.Link>
                       </Nav.Item>
                       <Nav.Item>
-                        <Nav.Link eventKey="third">Plugin development</Nav.Link>
+                        <Nav.Link
+                          eventKey="third"
+                          style={{ cursor: "pointer" }}
+                        >
+                          Plugin development
+                        </Nav.Link>
                       </Nav.Item>
                     </Nav>
                     <Tab.Content
@@ -86,21 +99,21 @@ export const Projects = () => {
                       }
                     >
                       <Tab.Pane eventKey="first">
-                        <Row>
+                        <Row style={{ cursor: "pointer" }}>
                           {webProjects.map((project, index) => {
                             return <ProjectCard key={index} {...project} />;
                           })}
                         </Row>
                       </Tab.Pane>
                       <Tab.Pane eventKey="second">
-                        <Row>
+                        <Row style={{ cursor: "pointer" }}>
                           {androidProjects.map((project, index) => {
                             return <ProjectCard key={index} {...project} />;
                           })}
                         </Row>
                       </Tab.Pane>
                       <Tab.Pane eventKey="third">
-                        <Row>
+                        <Row style={{ cursor: "pointer" }}>
                           {pluginProjects.map((project, index) => {
                             return <ProjectCard key={index} {...project} />;
                           })}
