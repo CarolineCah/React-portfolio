@@ -36,13 +36,24 @@ export const Skills = () => {
         <div className="row">
           <div className="col-12">
             <div className="skill-bx wow zoomIn">
-              <h2>Skills</h2>
+              <h2>What I love about coding</h2>
               <p>
-                I build frontend in Typescript/Javascript, styling with CSS and
-                popular styling frameworks such as Motion, styled.js and simple
-                CSS<br></br> For backend I have experience in C# and serverless
-                architectue in AWS with Lambda functions, S3 storage, Cloudwatch
-                and CRON jobs.
+                I found a pattern in what led me to learn coding and who I am.
+                <br />
+                1. I love logical games, chess, sudoku, quizzes. I like creating
+                worlds and stories, I have played RPGs a lot, video games and I
+                like organizing events. <br />
+                2. In early days I found myself drawn to complex problems such
+                as world politics and international relations. <br /> 3. I make
+                music. What I love about that is that after playing in a band
+                since 6th grade was to control and compose a song. Focus on
+                parts that I like in different parts of instruments <br />{" "}
+                <br />
+                My main focus is Javascript, CSS components and keeping up with
+                useful frameworks such as React.
+                <br></br> For backend I focus on C# and Serverless computing in
+                AWS with Lambda functions, S3, DynamoDB, Cloudwatch, Step
+                Functions and CRON jobs.
               </p>
               <Carousel
                 responsive={responsive}
