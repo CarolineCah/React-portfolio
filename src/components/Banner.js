@@ -2,9 +2,11 @@ import { useState, useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import header from "../assets/img/header.png";
 
+import { BrowserRouter as Router } from "react-router-dom";
 import { ArrowRightCircle } from "react-bootstrap-icons";
 import "animate.css";
 import TrackVisibility from "react-on-screen";
+import { HashLink } from "react-router-hash-link";
 
 export const Banner = () => {
   const [loopNum, setLoopNum] = useState(0);
@@ -75,9 +77,14 @@ export const Banner = () => {
                     Sweden. Currently developing websites, applications, plugins
                     and tools for Polestar.
                   </p>
-                  <button onClick={() => console.log("connect")}>
-                    Let’s Connect <ArrowRightCircle size={25} />
-                  </button>
+                  <Router>
+                    <HashLink to="#connect">
+                      <button className="vvd">
+                        <span>Let’s Connect</span>{" "}
+                        <ArrowRightCircle size={25} />
+                      </button>
+                    </HashLink>
+                  </Router>
                 </div>
               )}
             </TrackVisibility>
