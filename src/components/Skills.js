@@ -4,6 +4,10 @@ import js from "../assets/img/js.png";
 import graphql from "../assets/img/graphql.png";
 import aws from "../assets/img/aws.png";
 import c from "../assets/img/c.png";
+import chess from "../assets/img/SkillsIcons/chess.png";
+import gamepad from "../assets/img/SkillsIcons/gamepad.png";
+import playingcards from "../assets/img/SkillsIcons/playing-cards.png";
+import skill from "../assets/img/SkillsIcons/skill.png";
 
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
@@ -31,65 +35,74 @@ export const Skills = () => {
   };
 
   return (
-    <section className="skill" id="skills">
-      <div className="container">
-        <div className="row">
-          <div className="col-12">
-            <div className="skill-bx wow zoomIn">
-              <h2>What I love about coding</h2>
-              <p>
-                I found a pattern in what led me to learn coding and who I am.
-                <br />
-                1. I love logical games, chess, sudoku, quizzes. I like creating
-                worlds and stories, I have played RPGs a lot, video games and I
-                like organizing events. <br />
-                2. In early days I found myself drawn to complex problems such
-                as world politics and international relations. <br /> 3. I make
-                music. What I love about that is that after playing in a band
-                since 6th grade was to control and compose a song. Focus on
-                parts that I like in different parts of instruments <br />{" "}
-                <br />
-                My main focus is Javascript, CSS components and keeping up with
-                useful frameworks such as React.
-                <br></br> For backend I focus on C# and Serverless computing in
-                AWS with Lambda functions, S3, DynamoDB, Cloudwatch, Step
-                Functions and CRON jobs.
-              </p>
-              <Carousel
-                responsive={responsive}
-                infinite={true}
-                className="owl-carousel owl-theme skill-slider"
-              >
-                <div className="item">
-                  <img src={ts} alt="Image" />
-                  <h5>Typescript</h5>
-                </div>
-                <div className="item">
-                  <img src={js} alt="Image" />
-                  <h5>Javascript</h5>
-                </div>
-                <div className="item">
-                  <img src={react} alt="Image" />
-                  <h5>React</h5>
-                </div>
-                <div className="item">
-                  <img src={aws} alt="Image" />
-                  <h5>Servless architecture</h5>
-                </div>
-                <div className="item">
-                  <img src={graphql} alt="Image" />
-                  <h5>GraphQL</h5>
-                </div>
-                <div className="item">
-                  <img src={c} alt="Image" />
-                  <h5>C#</h5>
-                </div>
-              </Carousel>
-            </div>
-          </div>
-        </div>
+    <>
+      <div
+        style={{
+          width: "100%",
+          display: "flex",
+          justifyContent: "center",
+          color: "#fff",
+          margin: "30px",
+        }}
+      >
+        <h2>What lead me to programming?</h2>
       </div>
-      <img className="background-image-left" src={colorSharp} alt="Image" />
-    </section>
+
+      <section className="skills-container" id="skills">
+        <div className="skill-bx">
+          <div className="item">
+            <img src={chess} alt="Chess" />
+          </div>
+          <h2>Complex problem solving</h2>
+          <p>
+            Chess and logical games have always captivated me. They're a blend
+            of strategy, foresight, and pattern recognition. Every move demands
+            calculated decisions, mirroring the intricate dance of challenges in
+            life. These games sharpen my cognitive skills, teaching patience and
+            adaptability. To me, they symbolize the beauty of structured thought
+            and the joy in overcoming obstacles.
+          </p>
+        </div>
+
+        <div className="skill-bx">
+          <div className="item">
+            <img src={gamepad} alt="Gamepad" />
+          </div>
+          <h2>Logical Games & Creativity</h2>
+          <p>
+            Playing RPGs isn't just about having fun; it's like a workout for
+            your brain! In these games, you're dropped into wild worlds with
+            cool challenges. You gotta think on your feet, team up with others,
+            and make quick decisions. Whether you're figuring out a quest or
+            dealing with game characters, RPGs teach you there's always a way to
+            crack a problem, and sometimes, it's not the obvious one!
+          </p>
+        </div>
+
+        <div className="skill-bx">
+          <div className="item">
+            <img src={playingcards} alt="Cards" />
+          </div>
+          <h2>Music & Coding</h2>
+          <p>
+            I make music. What I love about that is that after playing in a band
+            since 6th grade was to control and compose a song. Focus on parts
+            that I like in different parts of instruments.
+          </p>
+        </div>
+
+        <div className="skill-bx">
+          <div className="item">
+            <img src={skill} alt="Brain Lightbulb" />
+          </div>
+          <h2>Innovation & Ideas</h2>
+          <p>
+            Innovative thinking and coming up with new ideas is essential in
+            coding. Being able to think outside the box and approach problems
+            from different angles can make all the difference.
+          </p>
+        </div>
+      </section>
+    </>
   );
 };

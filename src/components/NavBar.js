@@ -86,11 +86,11 @@ export const NavBar = () => {
                   <img src={navIcon3} alt="" />
                 </a>
               </div>
-                <HashLink to="#connect">
-                  <button className="vvd">
-                    <span>Let’s Connect</span>
-                  </button>
-                </HashLink>
+              <HashLink to="#connect">
+                <button className="vvd">
+                  <span>Let’s Connect</span>
+                </button>
+              </HashLink>
             </span>
           </Navbar.Collapse>
         </Container>

@@ -60,7 +60,15 @@ export const Projects = () => {
                     isVisible ? "animate__animated animate__fadeIn" : ""
                   }
                 >
-                  <h2 style={{ cursor: "default" }}>Projects</h2>
+                  <h2
+                    style={{
+                      cursor: "default",
+                      color: "#fff",
+                      marginBottom: "10px",
+                    }}
+                  >
+                    Projects
+                  </h2>
                   <Tab.Container id="projects-tabs" defaultActiveKey="first">
                     <Nav
                       variant="pills"

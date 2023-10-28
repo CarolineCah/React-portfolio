@@ -13,8 +13,8 @@ export const Banner = () => {
   const [isDeleting, setIsDeleting] = useState(false);
   const [text, setText] = useState("");
   const [delta, setDelta] = useState(300 - Math.random() * 100);
-  const toRotate = ["Software Engineer", "Web Developer"];
-  const period = 2000;
+  const toRotate = ["Software Engineer"];
+  const period = 1000;
 
   useEffect(() => {
     let ticker = setInterval(() => {
@@ -61,13 +61,13 @@ export const Banner = () => {
                     isVisible ? "animate__animated animate__fadeIn" : ""
                   }
                 >
-                  <span className="tagline">Welcome!</span>
                   <h1>
-                    {`Hi! I'm Caroline`}{" "}
+                    {`Caroline Cah`}
+                    <br></br>
                     <span
                       className="txt-rotate"
                       dataPeriod="1000"
-                      data-rotate='[ "Web Developer", "Software Engineer", "Technology Enthusiast"]'
+                      data-rotate='[ "Software Engineer", " a Technology Enthusiast"]'
                     >
                       <span className="wrap">{text}</span>
                     </span>
@@ -78,10 +78,10 @@ export const Banner = () => {
                     and tools for Polestar.
                   </p>
                   <Router>
-                    <HashLink to="#connect">
+                    <HashLink to="#connect" style={{ textDecoration: "none" }}>
                       <button className="vvd">
-                        <span>Let’s Connect</span>{" "}
-                        <ArrowRightCircle size={25} />
+                        <span style={{ color: "#333" }}>Let’s Connect</span>{" "}
+                        <ArrowRightCircle size={25} style={{ color: "#333" }} />
                       </button>
                     </HashLink>
                   </Router>
