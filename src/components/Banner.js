@@ -78,10 +78,10 @@ export const Banner = () => {
                     and tools for Polestar.
                   </p>
                   <Router>
-                    <HashLink to="#connect">
+                    <HashLink to="#connect" style={{ textDecoration: "none" }}>
                       <button className="vvd">
-                        <span>Let’s Connect</span>{" "}
-                        <ArrowRightCircle size={25} />
+                        <span style={{ color: "#333" }}>Let’s Connect</span>{" "}
+                        <ArrowRightCircle size={25} style={{ color: "#333" }} />
                       </button>
                     </HashLink>
                   </Router>
