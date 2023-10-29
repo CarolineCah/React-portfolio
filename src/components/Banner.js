@@ -2,11 +2,11 @@ import { useState, useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import header from "../assets/img/header.png";
 
-import { BrowserRouter as Router } from "react-router-dom";
 import { ArrowRightCircle } from "react-bootstrap-icons";
 import "animate.css";
 import TrackVisibility from "react-on-screen";
 import { HashLink } from "react-router-hash-link";
+import { BrowserRouter as Router } from "react-router-dom";
 
 export const Banner = () => {
   const [loopNum, setLoopNum] = useState(0);
@@ -70,21 +70,27 @@ export const Banner = () => {
                       data-rotate='[ "Software Engineer", " a Technology Enthusiast"]'
                     >
                       <span className="wrap">{text}</span>
+                      <p style={{ marginTop: "50px" }}>
+                        Hello there. I am a Software Engineer based in
+                        Gothenburg, Sweden. Currently developing websites,
+                        applications, plugins and tools for Polestar.
+                      </p>
                     </span>
+                    <Router>
+                      <HashLink
+                        to="#connect"
+                        style={{ textDecoration: "none" }}
+                      >
+                        <button className="vvd">
+                          <span style={{ color: "#333" }}>Let’s Connect</span>{" "}
+                          <ArrowRightCircle
+                            size={25}
+                            style={{ color: "#333" }}
+                          />
+                        </button>
+                      </HashLink>
+                    </Router>
                   </h1>
-                  <p>
-                    Hello there. I am a Software Engineer based in Gothenburg,
-                    Sweden. Currently developing websites, applications, plugins
-                    and tools for Polestar.
-                  </p>
-                  <Router>
-                    <HashLink to="#connect" style={{ textDecoration: "none" }}>
-                      <button className="vvd">
-                        <span style={{ color: "#333" }}>Let’s Connect</span>{" "}
-                        <ArrowRightCircle size={25} style={{ color: "#333" }} />
-                      </button>
-                    </HashLink>
-                  </Router>
                 </div>
               )}
             </TrackVisibility>

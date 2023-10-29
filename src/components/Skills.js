@@ -45,7 +45,9 @@ export const Skills = () => {
           margin: "30px",
         }}
       >
-        <h2>What lead me to programming?</h2>
+        <h2 style={{ fontSize: "50px", marginTop: "160px" }}>
+          What lead me to programming?
+        </h2>
       </div>
 
       <section className="skills-container" id="skills">
@@ -53,7 +55,7 @@ export const Skills = () => {
           <div className="item">
             <img src={chess} alt="Chess" />
           </div>
-          <h2>Complex problem solving</h2>
+          <h2>Problem solving</h2>
           <p>
             Chess and logical games have always captivated me. They're a blend
             of strategy, foresight, and pattern recognition. Every move demands
@@ -68,7 +70,7 @@ export const Skills = () => {
           <div className="item">
             <img src={gamepad} alt="Gamepad" />
           </div>
-          <h2>Logical Games & Creativity</h2>
+          <h2>Logical Games</h2>
           <p>
             Playing RPGs isn't just about having fun; it's like a workout for
             your brain! In these games, you're dropped into wild worlds with
