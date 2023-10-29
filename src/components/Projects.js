@@ -1,52 +1,16 @@
+import { useState } from "react";
 import { Container, Row, Col, Tab, Nav } from "react-bootstrap";
-import { ProjectCard } from "./ProjectCard";
-import projImg1 from "../assets/img/project-img1.png";
-import projImg2 from "../assets/img/project-img2.png";
-import projImg3 from "../assets/img/project-img3.png";
-import projImg4 from "../assets/img/project-img4.png";
-import projImg5 from "../assets/img/project-img5.png";
-
-import colorSharp2 from "../assets/img/color-sharp2.png";
-import "animate.css";
 import TrackVisibility from "react-on-screen";
+import { ProjectCard } from "./ProjectCard";
+import { webProjects, androidProjects, pluginProjects } from "../data/projects"; // Assuming project data is separated
+import colorSharp2 from "../assets/img/color-sharp2.png";
 
 export const Projects = () => {
-  const webProjects = [
-    {
-      title: "Polestar.com",
-      description: "Software development",
-      imgUrl: projImg1,
-    },
-    {
-      title: "about.polestar.com",
-      description: "Software development",
-      imgUrl: projImg2,
-    },
-    {
-      title: "Sales tools",
-      description:
-        "Software development. Web apps that displays emissions of Polestar cars compared to combustion engines",
-      imgUrl: projImg5,
-    },
-  ];
+  const [hasAnimated, setHasAnimated] = useState(false);
 
-  const androidProjects = [
-    {
-      title: "Android App - Västtrafik API integration",
-      description:
-        "University project. An app displaying current disturbances in the public transport in Gothenburg",
-      imgUrl: projImg4,
-    },
-  ];
-
-  const pluginProjects = [
-    {
-      title: "DatoCMS plugins",
-      description:
-        "Software Engineer. Backend in C# to filter, sort and correct incoming JSON data",
-      imgUrl: projImg3,
-    },
-  ];
+  const handleVisibility = (isVisible) => {
+    if (isVisible && !hasAnimated) setHasAnimated(true);
+  };
 
   return (
     <section className="projects" id="projects">
@@ -54,88 +18,70 @@ export const Projects = () => {
         <Row>
           <Col size={12}>
             <TrackVisibility>
-              {({ isVisible }) => (
-                <div
-                  className={
-                    isVisible ? "animate__animated animate__fadeIn" : ""
-                  }
-                >
-                  <h2
-                    style={{
-                      cursor: "default",
-                      color: "#fff",
-                      marginBottom: "10px",
-                    }}
-                  >
-                    Projects
-                  </h2>
-                  <Tab.Container id="projects-tabs" defaultActiveKey="first">
-                    <Nav
-                      variant="pills"
-                      className="nav-pills mb-5 justify-content-center align-items-center"
-                      id="pills-tab"
-                    >
-                      <Nav.Item>
-                        <Nav.Link
-                          eventKey="first"
-                          style={{ cursor: "pointer" }}
-                        >
-                          Web development
-                        </Nav.Link>
-                      </Nav.Item>
-                      <Nav.Item>
-                        <Nav.Link
-                          eventKey="second"
-                          style={{ cursor: "pointer" }}
-                        >
-                          Android Development
-                        </Nav.Link>
-                      </Nav.Item>
-                      <Nav.Item>
-                        <Nav.Link
-                          eventKey="third"
-                          style={{ cursor: "pointer" }}
-                        >
-                          Plugin development
-                        </Nav.Link>
-                      </Nav.Item>
-                    </Nav>
-                    <Tab.Content
-                      id="slideInUp"
-                      className={
-                        isVisible ? "animate__animated animate__slideInUp" : ""
-                      }
-                    >
-                      <Tab.Pane eventKey="first">
-                        <Row style={{ cursor: "pointer" }}>
-                          {webProjects.map((project, index) => {
-                            return <ProjectCard key={index} {...project} />;
-                          })}
-                        </Row>
-                      </Tab.Pane>
-                      <Tab.Pane eventKey="second">
-                        <Row style={{ cursor: "pointer" }}>
-                          {androidProjects.map((project, index) => {
-                            return <ProjectCard key={index} {...project} />;
-                          })}
-                        </Row>
-                      </Tab.Pane>
-                      <Tab.Pane eventKey="third">
-                        <Row style={{ cursor: "pointer" }}>
-                          {pluginProjects.map((project, index) => {
-                            return <ProjectCard key={index} {...project} />;
-                          })}
-                        </Row>
-                      </Tab.Pane>
-                    </Tab.Content>
-                  </Tab.Container>
-                </div>
-              )}
+              {({ isVisible }) => {
+                handleVisibility(isVisible);
+                const animationClasses = hasAnimated
+                  ? "animate__animated animate__fadeIn"
+                  : "";
+                return (
+                  <div className={animationClasses}>
+                    <h2>Projects</h2>
+                    <ProjectTabs hasAnimated={hasAnimated} />
+                  </div>
+                );
+              }}
             </TrackVisibility>
           </Col>
         </Row>
       </Container>
-      <img className="background-image-right" src={colorSharp2}></img>
+      <img
+        className="background-image-right"
+        alt="Decorative"
+        src={colorSharp2}
+      />
     </section>
   );
 };
+
+const ProjectTabs = ({ hasAnimated }) => {
+  const tabContentClasses = hasAnimated
+    ? "animate__animated animate__slideInUp"
+    : "";
+
+  return (
+    <Tab.Container id="projects-tabs" defaultActiveKey="first">
+      <Nav
+        variant="pills"
+        className="nav-pills mb-5 justify-content-center align-items-center"
+      >
+        {/* Tab Titles */}
+        <TabTitle eventKey="first" title="Web Development" />
+        <TabTitle eventKey="second" title="Android Development" />
+        <TabTitle eventKey="third" title="Plugin Development" />
+      </Nav>
+
+      <Tab.Content id="slideInUp" className={tabContentClasses}>
+        {/* Tab Panes */}
+        <TabPane eventKey="first" projects={webProjects} />
+        <TabPane eventKey="second" projects={androidProjects} />
+        <TabPane eventKey="third" projects={pluginProjects} />
+      </Tab.Content>
+    </Tab.Container>
+  );
+};
+
+const TabTitle = ({ eventKey, title }) => (
+  <Nav.Item>
+    <Nav.Link eventKey={eventKey}>{title}</Nav.Link>
+  </Nav.Item>
+);
+
+const TabPane = ({ eventKey, projects }) => (
+  <Tab.Pane eventKey={eventKey}>
+    <Row>
+      {projects.map((project, index) => (
+        <ProjectCard key={index} {...project} />
+      ))}
+    </Row>
+  </Tab.Pane>
+);

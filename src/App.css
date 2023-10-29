@@ -101,24 +101,43 @@ nav.navbar {
   z-index: 9999;
   transition: 0.32s ease-in-out;
 }
+
 nav.navbar.scrolled {
   padding: 0px 0;
+  color: #f5f5f7 !important;
   background-color: #121212;
+}
+
+nav.navbar.scrolled .social-icon a:hover img {
+  filter: brightness(0) saturate(100%) invert(0%) sepia(7%) saturate(7500%)
+    hue-rotate(346deg) brightness(95%) contrast(86%);
+}
+
+nav.navbar.scrolled .social-icon a img {
+  filter: brightness(0) invert(1);
+}
+
+nav.navbar.scrolled .navbar-nav .nav-link.navbar-link {
+  color: #f5f5f7;
 }
 nav.navbar a.navbar-brand {
   width: 9%;
 }
 nav.navbar .navbar-nav .nav-link.navbar-link {
   font-weight: 900;
-  color: purple !important;
+  color: #333;
   letter-spacing: 0.8px;
   padding: 0 25px;
-  font-size: 19p;
+  font-size: 21px;
   opacity: 0.75;
 }
 nav.navbar .navbar-nav a.nav-link.navbar-link:hover,
 nav.navbar .navbar-nav a.nav-link.navbar-link.active {
   opacity: 1;
+}
+
+.navbar-link.scrolled {
+  color: #f5f5f7;
 }
 span.navbar-text {
   display: flex;
@@ -157,6 +176,9 @@ span.navbar-text {
   width: 40%;
   z-index: 1;
   transition: 0.3s ease-in-out;
+  /* Set the filter to the previously "hover" style for a non-white appearance */
+  filter: brightness(0) saturate(100%) invert(0%) sepia(7%) saturate(7500%)
+    hue-rotate(346deg) brightness(95%) contrast(86%);
 }
 .social-icon a:hover img {
   filter: brightness(0) saturate(100%) invert(0%) sepia(7%) saturate(98%)
@@ -251,6 +273,44 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon:before {
 }
 nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   border-color: transparent;
+}
+
+.navbar-brand .text-layer {
+  position: relative;
+}
+
+.brand-title-hover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  pointer-events: none;
+  color: transparent;
+  background-image: linear-gradient(
+    90deg,
+    rgba(170, 54, 124, 1) 0%,
+    rgba(74, 47, 189, 1) 100%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  transition: all 0.3s ease;
+  opacity: 0; /* Hide initially */
+}
+
+.navbar-brand:hover .brand-title-hover {
+  opacity: 1; /* Show on hover */
+}
+
+.brand-title,
+.brand-title-hover {
+  transition: all 0.3s ease;
+  display: inline-block;
+  margin: 0; /* Reset margin */
+}
+
+.brand-title.scrolled {
+  color: #f5f5f7; /* Color when scrolled */
 }
 
 /************ Banner Css ************/
@@ -399,12 +459,15 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   padding: 80px 0;
   position: relative;
   background-color: black;
+  text-align: center;
 }
+
 .projects h2 {
   font-size: 45px;
   font-weight: 700;
-  text-align: center;
+  color: #fff;
 }
+
 .projects p {
   color: #b8b8b8;
   font-size: 18px;
@@ -467,12 +530,15 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   border: 1px solid rgba(255, 255, 255, 0.5);
   border-radius: 0 55px 55px 0;
 }
+
 .proj-imgbx {
   position: relative;
-  border-radius: 30px;
+  border-radius: 35px;
   overflow: hidden;
-  margin-bottom: 24px;
+  margin-bottom: 40px;
+  transition: transform 0.3s ease-in-out; /* Added transition for the transform property */
 }
+
 .proj-imgbx::before {
   content: "";
   background: linear-gradient(90.21deg, #aa367c -5.91%, #4a2fbd 111.58%);
@@ -511,6 +577,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   font-size: 15px;
   letter-spacing: 0.8px;
 }
+
 .background-image-right {
   top: 20%;
   position: absolute;
@@ -523,7 +590,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 /************ Projects Css ************/
 .contact {
   background: black;
-  padding: 60px 0 200px 0;
+  padding: 300px 0 200px 0;
 }
 .contact img {
   width: 92%;
