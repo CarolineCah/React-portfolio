@@ -38,7 +38,12 @@ export const Contact = () => {
     e.preventDefault();
     setButtonText("Sending...");
 
-    send("service_humjqtg", "template_6j70xgo", toSend, "aCtL3Sw_JjxZjkosi")
+    send(
+      "service_humjqtg",
+      "template_6j70xgo",
+      formDetails,
+      "aCtL3Sw_JjxZjkosi"
+    )
       .then((response) => {
         console.log("SUCCESS!", response.status, response.text);
         setButtonText("Sent email!");
