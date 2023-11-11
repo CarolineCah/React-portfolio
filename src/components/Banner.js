@@ -52,7 +52,7 @@ export const Banner = () => {
   return (
     <section className="banner" id="home">
       <Container>
-        <Row className="aligh-items-center">
+        <Row className="align-items-center">
           <Col xs={12} md={6} xl={7}>
             <TrackVisibility>
               {({ isVisible }) => (
@@ -63,34 +63,30 @@ export const Banner = () => {
                 >
                   <h1>
                     {`Caroline Cah`}
-                    <br></br>
-                    <span
-                      className="txt-rotate"
-                      dataPeriod="1000"
-                      data-rotate='[ "Software Engineer", " a Technology Enthusiast"]'
-                    >
-                      <span className="wrap">{text}</span>
-                      <p style={{ marginTop: "50px" }}>
-                        Hello there. I am a Software Engineer based in
-                        Gothenburg, Sweden. Currently developing websites,
-                        applications, plugins and tools for Polestar.
-                      </p>
-                    </span>
-                    <Router>
-                      <HashLink
-                        to="#connect"
-                        style={{ textDecoration: "none" }}
+                    <br />
+                    <div className="typing-container">
+                      <span
+                        className="txt-rotate"
+                        dataPeriod="1000"
+                        data-rotate='[ "Software Engineer", " a Technology Enthusiast"]'
                       >
-                        <button className="vvd">
-                          <span style={{ color: "#333" }}>Let’s Connect</span>{" "}
-                          <ArrowRightCircle
-                            size={25}
-                            style={{ color: "#333" }}
-                          />
-                        </button>
-                      </HashLink>
-                    </Router>
+                        <span className="wrap">{text}</span>
+                      </span>
+                    </div>
                   </h1>
+                  <p style={{ marginTop: "50px" }}>
+                    Hello there. I am a Software Engineer based in Gothenburg,
+                    Sweden. Currently developing websites, applications, plugins
+                    and tools for Polestar.
+                  </p>
+                  <Router>
+                    <HashLink to="#connect" style={{ textDecoration: "none" }}>
+                      <button className="vvd">
+                        <span style={{ color: "#333" }}>Let’s Connect</span>{" "}
+                        <ArrowRightCircle size={25} style={{ color: "#333" }} />
+                      </button>
+                    </HashLink>
+                  </Router>
                 </div>
               )}
             </TrackVisibility>
@@ -103,7 +99,12 @@ export const Banner = () => {
                     isVisible ? "animate__animated animate__zoomIn" : ""
                   }
                 >
-                  <img src={header} alt="Header Img" />
+                  <img
+                    src={header}
+                    alt="Header Img"
+                    className="header-image"
+                    style={{ maxWidth: "100%", height: "auto" }}
+                  />
                 </div>
               )}
             </TrackVisibility>
