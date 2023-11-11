@@ -37,15 +37,18 @@ export const NavBar = () => {
       >
         <Container>
           <Navbar.Brand href="/">
-            {scrolled ? (
-              <h1 className="brand-title scrolled">Caroline</h1>
-            ) : (
-              <h1 className="brand-title">Caroline</h1>
-            )}
+            <h1 className={scrolled ? "brand-title scrolled" : "brand-title"}>
+              Caroline
+            </h1>
           </Navbar.Brand>
 
-          <Navbar.Toggle aria-controls="basic-navbar-nav">
-            <span className="navbar-toggler-icon"></span>
+          <Navbar.Toggle
+            aria-controls="basic-navbar-nav"
+            style={{ border: "none" }}
+          >
+            <span
+              className={`navbar-toggler-icon ${scrolled ? "scrolled" : ""}`}
+            ></span>
           </Navbar.Toggle>
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto">

@@ -92,6 +92,23 @@ p.success {
 p.danger {
   color: red;
 }
+
+/************ Landing Body **********/
+.typing-container {
+  min-height: 3em;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+@media (max-width: 360px) {
+  .typing-container {
+    min-height: 2em;
+  }
+}
+
 /************ Navbar Css ************/
 nav.navbar {
   padding: 18px 0;
@@ -228,55 +245,86 @@ span.navbar-text {
   width: 100%;
   height: 100%;
   position: absolute;
-}
-nav.navbar .navbar-toggler:active,
-nav.navbar .navbar-toggler:focus {
-  outline: none;
-  box-shadow: none;
-}
-nav.navbar .navbar-toggler-icon {
-  width: 24px;
-  height: 17px;
-  background-image: none;
-  position: relative;
-  border-bottom: 2px solid #fff;
-  transition: all 300ms linear;
-  top: -2px;
-}
-nav.navbar .navbar-toggler-icon:focus {
-  border-bottom: 2px solid #fff;
-}
-nav.navbar .navbar-toggler-icon:after,
-nav.navbar .navbar-toggler-icon:before {
-  width: 24px;
-  position: absolute;
-  height: 2px;
-  background-color: #fff;
-  top: 0;
-  left: 0;
-  content: "";
-  z-index: 2;
-  transition: all 300ms linear;
-}
-nav.navbar .navbar-toggler-icon:after {
-  top: 8px;
-}
-nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon:after {
-  transform: rotate(45deg);
-  background-color: #333;
-  height: 2px;
-}
-nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon:before {
-  transform: translateY(8px) rotate(-45deg);
-  background-color: #333;
-  height: 2px;
-}
-nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
-  border-color: transparent;
+  background: linear-gradient(
+    45deg,
+    #009688,
+    #005c97
+  ); /* Modern gradient effect */
+  transition: background 300ms linear; /* Smooth transition for hover effect */
 }
 
-.navbar-brand .text-layer {
-  position: relative;
+nav.navbar
+  .navbar-toggler[aria-expanded="true"]
+  .navbar-toggler-icon
+  span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+nav.navbar
+  .navbar-toggler[aria-expanded="true"]
+  .navbar-toggler-icon
+  span:nth-child(2) {
+  opacity: 0;
+}
+
+nav.navbar
+  .navbar-toggler[aria-expanded="true"]
+  .navbar-toggler-icon
+  span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -6px);
+}
+
+.navbar-toggler {
+  border: none;
+  padding: 0.25rem 0.75rem;
+}
+
+/* Styles for the navbar toggler icon */
+.navbar-toggler-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 21px;
+  border: none;
+}
+
+.navbar-toggler-icon span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: #fff;
+  transition: all 0.3s ease-in-out;
+}
+
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+  border: none;
+}
+
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon span:nth-child(2) {
+  opacity: 0;
+  transform: scale(0);
+}
+
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+@media (max-width: 767.98px) {
+  nav.navbar {
+    padding: 10px 15px;
+  }
+  nav.navbar a.navbar-brand {
+    font-size: 1.25rem;
+  }
+  nav.navbar .navbar-nav .nav-link {
+    padding: 0 10px;
+  }
+  nav.navbar .social-icon,
+  nav.navbar .navbar-text {
+    display: none;
+  }
 }
 
 .brand-title-hover {
@@ -295,22 +343,22 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   background-clip: text;
   -webkit-background-clip: text;
   transition: all 0.3s ease;
-  opacity: 0; /* Hide initially */
+  opacity: 0;
 }
 
 .navbar-brand:hover .brand-title-hover {
-  opacity: 1; /* Show on hover */
+  opacity: 1;
 }
 
 .brand-title,
 .brand-title-hover {
   transition: all 0.3s ease;
   display: inline-block;
-  margin: 0; /* Reset margin */
+  margin: 0;
 }
 
 .brand-title.scrolled {
-  color: #f5f5f7; /* Color when scrolled */
+  color: #f5f5f7;
 }
 
 /************ Banner Css ************/
@@ -318,7 +366,6 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   margin-top: 20px;
   padding: 350px 0 100px 0;
   background-color: #f5f5f7;
-  /* background-image: url("./assets/img/banner-bg2.jpg"); */
   background-position: top center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -388,11 +435,70 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   border-right: 0.08em solid #666;
 }
 
+@media (max-width: 768px) {
+  .banner {
+    padding: 120px 0 60px 0;
+  }
+  .banner h1 {
+    font-size: 40px;
+    margin-bottom: 50px;
+  }
+  .banner p {
+    font-size: 16px;
+  }
+  .banner button {
+    font-size: 18px;
+    padding: 10px 20px;
+    margin-top: 30px;
+  }
+  .banner button svg {
+    margin-left: 5px;
+  }
+}
+
+@media (max-width: 768px) {
+  .banner img {
+    animation: updown 3s linear infinite;
+  }
+}
+
+@keyframes updown {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+}
+
+@media (max-width: 390px) {
+  .txt-rotate > .wrap {
+    border-right: 0.08em solid #666;
+  }
+}
+
+@media (max-width: 768px) {
+  .header-image {
+    max-width: 60% !important; /* Override any inline styles */
+    margin: 5px auto !important; /* Center the image if needed */
+    display: block; /* This ensures the margin auto takes effect */
+  }
+}
+
+/* You might also want to adjust the animation for mobile */
+@media (max-width: 390px) {
+  .animate__animated.animate__zoomIn {
+    animation: none; /* Remove the animation on mobile if it's too much */
+  }
+}
+
 /************ Skills Css ************/
 .skills-container {
   display: flex;
   justify-content: space-between;
   padding: 50px 0;
+  flex-wrap: wrap;
 }
 
 .skill-bx {
@@ -401,12 +507,14 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   border-radius: 64px;
   text-align: center;
   padding: 60px 50px;
-  margin: 0 10px;
+  margin: 10px;
+  max-width: calc(33.33% - 20px);
 }
 
 .skill-bx h2 {
   font-size: 45px;
   font-weight: 700;
+  margin: 20px 0;
 }
 
 .skill-bx p {
@@ -414,7 +522,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   font-size: 18px;
   letter-spacing: 0.8px;
   line-height: 1.5em;
-  margin: 14px 0 75px 0;
+  margin: 14px 0 30px 0;
 }
 
 .skill-bx img {
@@ -422,37 +530,35 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   margin: 0 auto 15px auto;
 }
 
-/* .skill {
-  padding: 0 0 50px 0;
-  position: relative;
+/* Responsive adjustments */
+@media only screen and (max-width: 768px) {
+  .skill-bx {
+    max-width: calc(50% - 20px);
+  }
+
+  .skill-bx h2 {
+    font-size: 35px;
+  }
+
+  .skill-bx p {
+    font-size: 16px;
+  }
 }
-.skill-bx {
-  background: #b677b6;
-  border-radius: 64px;
-  text-align: center;
-  padding: 60px 50px;
-  margin-top: -60px;
+
+@media only screen and (max-width: 480px) {
+  .skill-bx {
+    max-width: 100%;
+    padding: 30px 20px;
+  }
+
+  .skill-bx h2 {
+    font-size: 30px;
+  }
+
+  .skill-bx img {
+    width: 40%;
+  }
 }
-.skill h2 {
-  font-size: 45px;
-  font-weight: 700;
-}
-.skill p {
-  color: #070606;
-  font-size: 18px;
-  letter-spacing: 0.8px;
-  line-height: 1.5em;
-  margin: 14px 0 75px 0;
-}
-.skill-slider {
-  width: 80%;
-  margin: 0 auto;
-  position: relative;
-}
-.skill-slider .item img {
-  width: 50%;
-  margin: 0 auto 15px auto;
-} */
 
 /************ Projects Css ************/
 .projects {
@@ -536,7 +642,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   border-radius: 35px;
   overflow: hidden;
   margin-bottom: 40px;
-  transition: transform 0.3s ease-in-out; /* Added transition for the transform property */
+  transition: transform 0.3s ease-in-out;
 }
 
 .proj-imgbx::before {
