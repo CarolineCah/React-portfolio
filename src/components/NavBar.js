@@ -81,6 +81,14 @@ export const NavBar = () => {
               >
                 Projects
               </Nav.Link>
+              <Nav.Link
+                href="https://www.codewithcaro.com/"
+                className={`navbar-link codewithcaro ${
+                  scrolled ? "scrolled" : ""
+                }`}
+              >
+                CodeWithCaro
+              </Nav.Link>
             </Nav>
             <span className="navbar-text">
               <div className="social-icon">
