@@ -54,14 +54,11 @@ const ProjectTabs = ({ hasAnimated }) => {
         variant="pills"
         className="nav-pills mb-5 justify-content-center align-items-center"
       >
-        {/* Tab Titles */}
         <TabTitle eventKey="first" title="Web Development" />
         <TabTitle eventKey="second" title="Android Development" />
         <TabTitle eventKey="third" title="Plugin Development" />
       </Nav>
-
       <Tab.Content id="slideInUp" className={tabContentClasses}>
-        {/* Tab Panes */}
         <TabPane eventKey="first" projects={webProjects} />
         <TabPane eventKey="second" projects={androidProjects} />
         <TabPane eventKey="third" projects={pluginProjects} />

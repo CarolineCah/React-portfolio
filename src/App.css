@@ -193,7 +193,6 @@ span.navbar-text {
   width: 40%;
   z-index: 1;
   transition: 0.3s ease-in-out;
-  /* Set the filter to the previously "hover" style for a non-white appearance */
   filter: brightness(0) saturate(100%) invert(0%) sepia(7%) saturate(7500%)
     hue-rotate(346deg) brightness(95%) contrast(86%);
 }
@@ -205,7 +204,6 @@ span.navbar-text {
   font-weight: 700;
   background-color: #333;
   color: #fff;
-  /* border: 1px solid #fff; */
   padding: 18px 34px;
   font-size: 18px;
   margin-left: 18px;
@@ -245,12 +243,8 @@ span.navbar-text {
   width: 100%;
   height: 100%;
   position: absolute;
-  background: linear-gradient(
-    45deg,
-    #009688,
-    #005c97
-  ); /* Modern gradient effect */
-  transition: background 300ms linear; /* Smooth transition for hover effect */
+  background: linear-gradient(45deg, #009688, #005c97);
+  transition: background 300ms linear;
 }
 
 nav.navbar
@@ -279,7 +273,6 @@ nav.navbar
   padding: 0.25rem 0.75rem;
 }
 
-/* Styles for the navbar toggler icon */
 .navbar-toggler-icon {
   display: flex;
   flex-direction: column;
@@ -325,6 +318,35 @@ nav.navbar
   nav.navbar .navbar-text {
     display: none;
   }
+}
+
+.navbar-link.codewithcaro {
+  background: -webkit-linear-gradient(
+    90.21deg,
+    rgba(125, 32, 122, 0.7) -5.91%,
+    rgba(50, 20, 100, 0.7) 111.58%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block; /* Required for background-clip to work */
+}
+
+.navbar-link.codewithcaro {
+  background: linear-gradient(
+    90.21deg,
+    rgba(125, 32, 122, 0.7) -5.91%,
+    rgba(50, 20, 100, 0.7) 111.58%
+  );
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+}
+
+nav.navbar.scrolled .navbar-link.codewithcaro {
+  background: linear-gradient(90.21deg, #e6ace6 0%, #b677b6 100%);
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
 }
 
 .brand-title-hover {
@@ -480,16 +502,15 @@ nav.navbar
 
 @media (max-width: 768px) {
   .header-image {
-    max-width: 60% !important; /* Override any inline styles */
-    margin: 5px auto !important; /* Center the image if needed */
-    display: block; /* This ensures the margin auto takes effect */
+    max-width: 60% !important;
+    margin: 5px auto !important;
+    display: block;
   }
 }
 
-/* You might also want to adjust the animation for mobile */
 @media (max-width: 390px) {
   .animate__animated.animate__zoomIn {
-    animation: none; /* Remove the animation on mobile if it's too much */
+    animation: none;
   }
 }
 
@@ -509,6 +530,7 @@ nav.navbar
   padding: 60px 50px;
   margin: 10px;
   max-width: calc(33.33% - 20px);
+  cursor: pointer;
 }
 
 .skill-bx h2 {
@@ -530,7 +552,6 @@ nav.navbar
   margin: 0 auto 15px auto;
 }
 
-/* Responsive adjustments */
 @media only screen and (max-width: 768px) {
   .skill-bx {
     max-width: calc(50% - 20px);
@@ -620,21 +641,26 @@ nav.navbar
 }
 .projects .nav.nav-pills .nav-link.active::before {
   width: 100% !important;
+  cursor: pointer;
 }
 .projects .nav.nav-pills .nav-link.active {
   border: 1px solid rgba(255, 255, 255, 1);
+  cursor: pointer;
 }
 .nav-link#projects-tabs-tab-first {
   border: 1px solid rgba(255, 255, 255, 0.5);
   border-radius: 55px 0px 0px 55px;
+  cursor: pointer;
 }
 .nav-link#projects-tabs-tab-second {
   border-top: 1px solid rgba(255, 255, 255, 0.5);
   border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  cursor: pointer;
 }
 .nav-link#projects-tabs-tab-third {
   border: 1px solid rgba(255, 255, 255, 0.5);
   border-radius: 0 55px 55px 0;
+  cursor: pointer;
 }
 
 .proj-imgbx {
