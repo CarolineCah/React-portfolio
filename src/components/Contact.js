@@ -1,9 +1,10 @@
-import { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import contactImg from "../assets/img/contact-img.svg";
 import "animate.css";
 import TrackVisibility from "react-on-screen";
 import { send } from "emailjs-com";
+import Confetti from "react-confetti";
 
 export const Contact = () => {
   const formInitialDetails = {
@@ -15,15 +16,19 @@ export const Contact = () => {
   };
   const [formDetails, setFormDetails] = useState(formInitialDetails);
   const [buttonText, setButtonText] = useState("Send");
-  const [status, setStatus] = useState({});
-  const [toSend] = useState({
-    from_name: "",
-    to_name: "",
-    message: "",
-    reply_to: "",
-  });
+  const [status, setStatus] = React.useState({ success: null, message: "" });
+  const formRef = useRef(null);
+  const [confettiSize, setConfettiSize] = useState({ width: 0, height: 0 });
 
-  // State to track if the animation has played
+  useEffect(() => {
+    if (formRef.current) {
+      setConfettiSize({
+        width: formRef.current.offsetWidth,
+        height: formRef.current.offsetHeight,
+      });
+    }
+  }, [formRef.current]);
+
   const [hasAnimatedImg, setHasAnimatedImg] = useState(false);
   const [hasAnimatedForm, setHasAnimatedForm] = useState(false);
 
@@ -47,19 +52,19 @@ export const Contact = () => {
       .then((response) => {
         console.log("SUCCESS!", response.status, response.text);
         setButtonText("Sent email!");
-        setStatus({ succes: true, message: "Message sent successfully" });
+        setStatus({ success: true });
       })
       .catch((err) => {
         console.log("FAILED...", err);
         setStatus({
-          succes: false,
+          success: false,
           message: "Something went wrong, please try again later.",
         });
       });
   };
 
   return (
-    <section className="contact" id="connect">
+    <section className="contact" id="connect" ref={formRef}>
       <Container>
         <Row className="align-items-center">
           <Col size={12} md={6}>
@@ -155,16 +160,16 @@ export const Contact = () => {
                             <span>{buttonText}</span>
                           </button>
                         </Col>
-                        {status.message && (
-                          <Col>
-                            <p
-                              className={
-                                status.success === false ? "danger" : "success"
-                              }
-                            >
-                              {status.message}
-                            </p>
-                          </Col>
+                        {status.success && (
+                          <Confetti
+                            width={confettiSize.width}
+                            height={confettiSize.height}
+                            numberOfPieces={200}
+                            recycle={false}
+                            onConfettiComplete={() =>
+                              setStatus({ ...status, success: null })
+                            }
+                          />
                         )}
                       </Row>
                     </form>
