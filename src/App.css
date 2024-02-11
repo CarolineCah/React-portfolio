@@ -723,6 +723,7 @@ nav.navbar.scrolled .navbar-link.codewithcaro {
 .contact {
   background: black;
   padding: 300px 0 200px 0;
+  position: relative;
 }
 .contact img {
   width: 92%;
