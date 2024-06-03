@@ -80,6 +80,7 @@ export const Contact = () => {
                     }
                     src={contactImg}
                     alt="Contact Us"
+                    style={{ borderRadius: "700px" }}
                   />
                 );
               }}
